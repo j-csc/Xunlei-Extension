@@ -8,7 +8,8 @@ safari.self.addEventListener("message", messageHandler);
 
 // Regexes
 
-// Group 1:
+// Group 1:(http(s?):)|([/|.|\w|\s])*\.(?:jpg|gif|png)
+
 // Group 2: /(\b(thunder|magnet|ed2k):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 
 function messageHandler(event)
