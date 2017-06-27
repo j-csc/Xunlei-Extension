@@ -23,9 +23,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         // This method will be called when your toolbar item is clicked.
         NSLog("The extension's toolbar item was clicked")
         
-        window.getToolbarItem { (toolbarItem) in
-            toolbarItem?.setEnabled(true, withBadgeText: "1")
-        }
+        window.getActiveTab(completionHandler: { (activeTab) in
+            activeTab?.getActivePage(completionHandler:  { (activePage) in
+                activePage?.dispatchMessageToScript(withName: "toolbarItemClicked", userInfo: nil)
+                
+            })
+        })
+        
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
