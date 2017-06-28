@@ -28,7 +28,9 @@ function messageHandler(event)
 
 function sortURL() {
     
-    var passDict = [];
+    var dict = [];
+    var thunderEdDict = [];
+    var magnetDict = [];
     
     // Regex for basic links
     var urlRegex = /(\b(http[s]?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
@@ -37,7 +39,7 @@ function sortURL() {
     var thunderRegex = /(\b(thunder|ed2k):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     
     // Regex for Magnet links
-    var magnet = /(\b(magnet:\?xt=urn):[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var magnetRegex = /(\b(magnet:\?xt=urn):[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     
     var source = document.body.innerHTML;
     var arrLinks = document.links;
@@ -48,21 +50,21 @@ function sortURL() {
             concatArr.push(arrLinks[i].href)
         }
     }
-    var dict = source.match(urlRegex);
-    var thunderEdDict = source.match(thunderRegex);
     
-    if (dict === null && thunderEdDict === null) {
-        passDict = concatArr;
-    } else if (dict === null && thunderEdDict != null) {
-        passDict = thunderEdDict.concat(concatArr);
-    } else if (dict != null && thunderEdDict === null) {
-        passDict = dict.concat(concatArr);
-    } else {
-        var combineDict = dict.concat(thunderEdDict);
-        passDict = combineDict.concat(combineDict);
+    if (source.match(urlRegex) != null) {
+        dict = source.match(urlRegex);
     }
+    if (source.match(thunderRegex) != null) {
+        thunderEdDict = source.match(thunderRegex);
+    }
+    if (source.match(magnetRegex) != null) {
+        magnetDict = source.match(magnetRegex);
+    }
+    
+    var final = [].concat(dict,thunderEdDict,magnetDict,concatArr);
+    
     console.log("Sorted");
-    return passDict;
+    return final;
 }
 
 function secondarySort(arr) {
@@ -75,9 +77,10 @@ function secondarySort(arr) {
     var otherReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:rar|zip|7z|iso|tar|gz))/ig;
     
     // Magnet
-    var magnetRegex =
-    // Regex for Thunder and ED2k
+    var magnetRegex = /(\b(magnet:\?xt=urn):[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    // Thunder
     var thunderRegex = /(\b(thunder):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    // ED2k
     var ed2kRegex = /(\b(ed2k):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
     
     for(var i=0; i<arr.length; i++) {
@@ -93,10 +96,13 @@ function secondarySort(arr) {
             array.push({type:"other", link: arr[i]})
         }else if (thunderRegex.test(arr[i])){
             // handleThunder
+            console.log("Found thunder");
         }else if(ed2kRegex.test(arr[i])){
             // handleED2k
+            console.log("Found thunder");
         }else if(magnetRegex.test(arr[i])){
             // handleMagnet
+            console.log("Found thunder");
         }
     }
     
