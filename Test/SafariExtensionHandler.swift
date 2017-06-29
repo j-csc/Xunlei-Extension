@@ -8,14 +8,18 @@
 
 import SafariServices
 
+
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
-    var numberOfLinks = 0
     
+    var numberOfLinks = 0
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]? = nil) {
         if messageName == "pageSet" {
             page.dispatchMessageToScript(withName: "findLink", userInfo: nil);
+        } else if messageName == "dataProcessed" {
+            // Table view handle
+            SafariExtensionViewController.shared.update(data: userInfo!)
         }
     }
     

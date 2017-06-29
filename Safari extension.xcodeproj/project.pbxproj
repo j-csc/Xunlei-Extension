@@ -672,6 +672,7 @@
 				9690C6B61F00DBE9006201F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9690C6B71F00DBE9006201F7 /* Build configuration list for PBXNativeTarget "Safari extensionTests" */ = {
 			isa = XCConfigurationList;
@@ -680,6 +681,7 @@
 				9690C6B91F00DBE9006201F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9690C6BA1F00DBE9006201F7 /* Build configuration list for PBXNativeTarget "Safari extensionUITests" */ = {
 			isa = XCConfigurationList;
@@ -688,6 +690,7 @@
 				9690C6BC1F00DBE9006201F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9690C6D71F00DC24006201F7 /* Build configuration list for PBXNativeTarget "Test" */ = {
 			isa = XCConfigurationList;
@@ -696,6 +699,7 @@
 				9690C6D91F00DC24006201F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
