@@ -304,7 +304,7 @@
 					};
 					9690C6C01F00DC23006201F7 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = U8C8JS3QYQ;
+						DevelopmentTeam = TT7FUGBH6S;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -629,11 +629,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				DEVELOPMENT_TEAM = U8C8JS3QYQ;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = TT7FUGBH6S;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jason-Chen.Safari-extension.Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -643,11 +645,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
-				DEVELOPMENT_TEAM = U8C8JS3QYQ;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = TT7FUGBH6S;
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jason-Chen.Safari-extension.Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};

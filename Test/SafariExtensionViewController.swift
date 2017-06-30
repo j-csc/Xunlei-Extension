@@ -12,8 +12,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     @IBOutlet weak var tableView: NSTableView!
     
-    var arrayData: [String: Any]?
+    var tableContents: [[String: Any]]?
     var lastLocation: String?
+    var haveData: Bool?
     
     static let shared = SafariExtensionViewController()
     // After receiving data, make sure there are no duplicates before passing onto table view
@@ -26,7 +27,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         if let userInfo = data["key"] as? [[String: Any]], let href = data["href"] as? String {
             print(href)
             print(userInfo)
-            
+            if (lastLocation != href) {
+                tableContents = userInfo
+                lastLocation = href
+                haveData = true
+            }else if (lastLocation == href) {
+                haveData = false
+            }
         }
         //dict.key[0].link
     }
