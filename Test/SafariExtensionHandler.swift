@@ -15,9 +15,10 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     var numberOfLinks = 0
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]? = nil) {
-        if messageName == "pageSet" {
-            page.dispatchMessageToScript(withName: "findLink", userInfo: nil);
-        } else if messageName == "dataProcessed" {
+//        if messageName == "pageSet" {
+//            page.dispatchMessageToScript(withName: "findLink", userInfo: nil);
+//        } else 
+        if messageName == "dataProcessed" {
             // Table view handle
             SafariExtensionViewController.shared.update(data: userInfo!)
         }
@@ -26,7 +27,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func toolbarItemClicked(in window: SFSafariWindow) {
         // This method will be called when your toolbar item is clicked.
         NSLog("The extension's toolbar item was clicked")
-        
+        window.getActiveTab { (activeTab) in
+            activeTab?.getActivePage { (activePage) in
+                activePage?.dispatchMessageToScript(withName: "DoSomethingInteresting", userInfo: nil)
+            }
+        }
+
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {

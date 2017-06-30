@@ -5,34 +5,25 @@
 //  Created by Jason Chen on 26/6/2017.
 //  Copyright © 2017 Jason Chen & Co All rights reserved.
 //
-var vidReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:mp4|swf|avi|rm|rmvb|3gp|flv|wmv|mkv|mpg))/ig;
+var vidReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:mp4|avi|rm|rmvb|3gp|flv|wmv|mkv|mpg))/ig;
 var musReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:mp3|wav|ram|wma|amr|aac))/ig;
 var appReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:ipa|ipsw|dmg|exe|apk))/ig;
 var fileReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:txt|rtf|doc|docx|ppt|pptx|xls|xlsx|pdf|torrent))/ig;
 var otherReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:rar|zip|7z|iso|tar|gz))/ig;
 
-document.addEventListener("DOMContentLoaded", function(event) {
-                          safari.extension.dispatchMessage("pageSet");
-                          });
+window.addEventListener("DOMContentLoaded", function (event) {
+                        if (window === window.top) {
+                        console.log("Received message")
+                        var arr = sortURL(); // Fetches all links that have http/ https / ftp in it
+                        var passDict = secondarySort(arr);
+                        console.log(passDict);
+                        console.log("Passing to tableView");
+                        safari.extension.dispatchMessage("dataProcessed", {
+                                                         key: passDict,
+                                                         href: location.href
+                                                         });  }
+                        });
 
-// Listens for messages sent from the app extension's Swift code.
-
-safari.self.addEventListener("message", messageHandler);
-
-
-function messageHandler(event) {
-    if (event.name === "findLink") {
-        console.log("Received message")
-        var arr = sortURL(); // Fetches all links that have http/ https / ftp in it
-        var passDict = secondarySort(arr);
-        console.log(passDict);
-        console.log("Passing to tableView");
-        safari.extension.dispatchMessage("dataProcessed", {
-                                         key: passDict,
-                                         href: location.href
-                                         });
-    }
-}
 
 function sortURL() {
     
@@ -91,33 +82,33 @@ function secondarySort(arr) {
             array.push({
                        type: "video",
                        link: arr[i],
-                       name: processName(arr[i])});
-        }
-        else if (musReg.test(arr[i])) {
+                       name: processName(arr[i])
+                       });
+        } else if (musReg.test(arr[i])) {
             array.push({
                        type: "music",
                        link: arr[i],
-                       name: processName(arr[i])});
-        }
-        else if (appReg.test(arr[i])) {
+                       name: processName(arr[i])
+                       });
+        } else if (appReg.test(arr[i])) {
             array.push({
                        type: "app",
                        link: arr[i],
-                       name: processName(arr[i])});
-        }
-        else if (fileReg.test(arr[i])) {
+                       name: processName(arr[i])
+                       });
+        } else if (fileReg.test(arr[i])) {
             array.push({
                        type: "file",
                        link: arr[i],
-                       name: processName(arr[i])});
-        }
-        else if (otherReg.test(arr[i])) {
+                       name: processName(arr[i])
+                       });
+        } else if (otherReg.test(arr[i])) {
             array.push({
                        type: "other",
                        link: arr[i],
-                       name: processName(arr[i])});
-        }
-        else if (thunderRegex.test(arr[i])) {
+                       name: processName(arr[i])
+                       });
+        } else if (thunderRegex.test(arr[i])) {
             array.push(handleThunder(arr[i]))
         } else if (ed2kRegex.test(arr[i])) {
             array.push(handleED2K(arr[i]))
@@ -228,7 +219,7 @@ function handleMagnet(magnetURL) {
 
 var Base64 = {
 _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-encode: function(e) {
+encode: function (e) {
     var t = "";
     var n, r, i, s, o, u, a;
     var f = 0;
@@ -250,7 +241,7 @@ encode: function(e) {
     }
     return t
 },
-decode: function(e) {
+decode: function (e) {
     var t = "";
     var n, r, i;
     var s, o, u, a;
@@ -275,7 +266,7 @@ decode: function(e) {
     t = Base64._utf8_decode(t);
     return t
 },
-_utf8_encode: function(e) {
+_utf8_encode: function (e) {
     e = e.replace(/rn/g, "n");
     var t = "";
     for (var n = 0; n < e.length; n++) {
@@ -293,7 +284,7 @@ _utf8_encode: function(e) {
     }
     return t
 },
-_utf8_decode: function(e) {
+_utf8_decode: function (e) {
     var t = "";
     var n = 0;
     var r = c1 = c2 = 0;

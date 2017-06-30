@@ -12,7 +12,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     @IBOutlet weak var tableView: NSTableView!
     
-    var tableContents: [[String: Any]]?
+    var tableContents: [[String: Any]] = [[:]] // keys: link, href, type, name
     var lastLocation: String?
     var haveData: Bool?
     
@@ -20,22 +20,18 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     // After receiving data, make sure there are no duplicates before passing onto table view
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //  make sure tableContents is unique for all items, and sorted for last date
+    }
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        // clear tableContents
     }
     
     func update(data: [String: Any]) {
         if let userInfo = data["key"] as? [[String: Any]], let href = data["href"] as? String {
-            print(href)
-            print(userInfo)
-            if (lastLocation != href) {
-                tableContents = userInfo
-                lastLocation = href
-                haveData = true
-            }else if (lastLocation == href) {
-                haveData = false
-            }
+            tableContents = userInfo
+            //update table view data
         }
-        //dict.key[0].link
     }
 
 }
