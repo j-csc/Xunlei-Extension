@@ -12,24 +12,25 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     @IBOutlet weak var tableView: NSTableView!
     
-    var tableContents: [[String: Any]]? // keys: link, href, type, name 
+    var tableContents: [[String: Any]]? // keys: link, href, type, name
     {
         didSet {
             tableView?.reloadData()
         }
     }
-    
     var lastLocation: String?
     var haveData: Bool?
     
     static let shared = SafariExtensionViewController()
     // After receiving data, make sure there are no duplicates before passing onto table view
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //  make sure tableContents is unique for all items, and sorted for last date
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.reloadData()
+
     }
     override func viewDidDisappear() {
         super.viewDidDisappear()
@@ -93,4 +94,5 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         return nil
     }
 }
-   
+
+

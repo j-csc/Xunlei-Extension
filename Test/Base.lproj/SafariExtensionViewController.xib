@@ -15,6 +15,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
+<<<<<<< HEAD
             <rect key="frame" x="0.0" y="0.0" width="451" height="372"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -22,6 +23,15 @@
                     <rect key="frame" x="103" y="335" width="124" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="pVA-GE-hrO"/>
+=======
+            <rect key="frame" x="0.0" y="0.0" width="330" height="297"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-aV-wGF">
+                    <rect key="frame" x="103" y="260" width="124" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="E6z-A0-Cm5"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="迅雷影片" id="2Ec-kd-q2K">
                         <font key="font" size="13" name=".PingFangHK-Regular"/>
@@ -29,6 +39,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+<<<<<<< HEAD
                 <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-DA-3pp">
                     <rect key="frame" x="20" y="40" width="411" height="271"/>
                     <clipView key="contentView" id="Y8A-cU-Z27">
@@ -37,12 +48,26 @@
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="z76-Yt-S6c" viewBased="YES" id="Ubj-ec-l1f">
                                 <rect key="frame" x="0.0" y="0.0" width="409" height="247"/>
+=======
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-DA-3pp">
+                    <rect key="frame" x="45" y="81" width="251" height="135"/>
+                    <clipView key="contentView" id="Y8A-cU-Z27">
+                        <rect key="frame" x="1" y="0.0" width="249" height="134"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="z76-Yt-S6c" viewBased="YES" id="Ubj-ec-l1f">
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="111"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
+<<<<<<< HEAD
                                     <tableColumn identifier="NameCellID" width="118" minWidth="40" maxWidth="1000" id="AAr-bL-L7E">
+=======
+                                    <tableColumn width="118" minWidth="40" maxWidth="1000" id="AAr-bL-L7E">
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Name">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -69,9 +94,15 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
+<<<<<<< HEAD
                                                     <constraint firstItem="GlP-yY-wGH" firstAttribute="leading" secondItem="jN5-7M-Tvs" secondAttribute="leading" constant="2" id="Eay-fB-9q2"/>
                                                     <constraint firstItem="GlP-yY-wGH" firstAttribute="centerX" secondItem="jN5-7M-Tvs" secondAttribute="centerX" id="Gk8-k7-vF9"/>
                                                     <constraint firstItem="GlP-yY-wGH" firstAttribute="centerY" secondItem="jN5-7M-Tvs" secondAttribute="centerY" id="xYG-yf-Zjw"/>
+=======
+                                                    <constraint firstItem="GlP-yY-wGH" firstAttribute="centerY" secondItem="jN5-7M-Tvs" secondAttribute="centerY" id="4Ws-j9-WsI"/>
+                                                    <constraint firstItem="GlP-yY-wGH" firstAttribute="centerX" secondItem="jN5-7M-Tvs" secondAttribute="centerX" id="GI6-Ae-2Ia"/>
+                                                    <constraint firstItem="GlP-yY-wGH" firstAttribute="leading" secondItem="jN5-7M-Tvs" secondAttribute="leading" constant="2" id="zGN-o9-wg4"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="textField" destination="GlP-yY-wGH" id="Q65-Vi-QXu"/>
@@ -79,7 +110,11 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
+<<<<<<< HEAD
                                     <tableColumn identifier="TypeCellID" width="285" minWidth="40" maxWidth="1000" id="7tW-IY-aU8">
+=======
+                                    <tableColumn width="125" minWidth="40" maxWidth="1000" id="7tW-IY-aU8">
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Type">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -93,14 +128,21 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="UKo-bM-p6m">
+<<<<<<< HEAD
                                                 <rect key="frame" x="122" y="1" width="285" height="17"/>
+=======
+                                                <rect key="frame" x="122" y="1" width="125" height="17"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7F-t9-K4c">
                                                         <rect key="frame" x="0.0" y="0.0" width="125" height="17"/>
+<<<<<<< HEAD
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="121" id="KBb-9Q-CVq"/>
                                                         </constraints>
+=======
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Sample Type" id="UT9-9I-TuW">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -109,8 +151,14 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
+<<<<<<< HEAD
                                                     <constraint firstItem="l7F-t9-K4c" firstAttribute="centerY" secondItem="UKo-bM-p6m" secondAttribute="centerY" id="CSb-Ib-gz3"/>
                                                     <constraint firstItem="l7F-t9-K4c" firstAttribute="leading" secondItem="UKo-bM-p6m" secondAttribute="leading" constant="2" id="tBk-Vg-Ral"/>
+=======
+                                                    <constraint firstItem="l7F-t9-K4c" firstAttribute="centerX" secondItem="UKo-bM-p6m" secondAttribute="centerX" id="Qff-kR-WMz"/>
+                                                    <constraint firstItem="l7F-t9-K4c" firstAttribute="centerY" secondItem="UKo-bM-p6m" secondAttribute="centerY" id="idQ-GX-dWD"/>
+                                                    <constraint firstItem="l7F-t9-K4c" firstAttribute="leading" secondItem="UKo-bM-p6m" secondAttribute="leading" constant="2" id="nx9-ts-dh8"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="textField" destination="l7F-t9-K4c" id="0ae-Gj-xTs"/>
@@ -122,12 +170,17 @@
                             </tableView>
                         </subviews>
                     </clipView>
+<<<<<<< HEAD
                     <constraints>
                         <constraint firstAttribute="width" constant="411" id="0eu-I8-z5f"/>
                         <constraint firstAttribute="height" constant="271" id="KSY-4C-St8"/>
                     </constraints>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="GRJ-rD-6eL">
                         <rect key="frame" x="1" y="265" width="389" height="16"/>
+=======
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="GRJ-rD-6eL">
+                        <rect key="frame" x="1" y="119" width="249" height="15"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="IHM-r7-mZf">
@@ -135,12 +188,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" id="z76-Yt-S6c">
+<<<<<<< HEAD
                         <rect key="frame" x="0.0" y="0.0" width="409" height="23"/>
+=======
+                        <rect key="frame" x="0.0" y="0.0" width="249" height="23"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
             </subviews>
             <constraints>
+<<<<<<< HEAD
                 <constraint firstItem="NMT-DA-3pp" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="81" id="1Fg-BA-peB"/>
                 <constraint firstAttribute="trailing" secondItem="NMT-DA-3pp" secondAttribute="trailing" constant="20" symbolic="YES" id="D0g-GA-AuU"/>
                 <constraint firstItem="NMT-DA-3pp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="RVW-9S-qhA"/>
@@ -153,6 +211,16 @@
                 <constraint firstAttribute="bottom" secondItem="NMT-DA-3pp" secondAttribute="bottom" constant="20" id="sxt-v1-1s5"/>
             </constraints>
             <point key="canvasLocation" x="246.5" y="146"/>
+=======
+                <constraint firstItem="NMT-DA-3pp" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="0gU-Nt-Wb3"/>
+                <constraint firstItem="4Iy-aV-wGF" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="3AR-ds-rFh"/>
+                <constraint firstAttribute="trailing" secondItem="NMT-DA-3pp" secondAttribute="trailing" constant="34" id="4K8-CA-XK1"/>
+                <constraint firstItem="NMT-DA-3pp" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="45" id="4R0-xr-1ZV"/>
+                <constraint firstItem="4Iy-aV-wGF" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="P41-EG-lBA"/>
+                <constraint firstItem="NMT-DA-3pp" firstAttribute="top" secondItem="4Iy-aV-wGF" secondAttribute="bottom" constant="44" id="jIo-ii-Wxn"/>
+            </constraints>
+            <point key="canvasLocation" x="49" y="214.5"/>
+>>>>>>> 7f7239e41172653ada5f4cf77f9adf18b8d09f8f
         </customView>
     </objects>
 </document>
