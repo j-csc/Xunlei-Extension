@@ -148,13 +148,13 @@ function handleED2K(ed2kURL) {
     
     var arrED = (ed2kURL).substr(8).split('|')
     
-    function formatBytes(a, b) {
-        if (0 == a) return "0 Bytes";
-        var c = 1e3,
-        d = b || 2,
-        e = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
-        f = Math.floor(Math.log(a) / Math.log(c));
-        return parseFloat((a / Math.pow(c, f)).toFixed(d)) + " " + e[f]
+    function bytesToSize(bytes) {
+        if (bytes === 0) return '0 B';
+        var k = 1024,
+        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+        i = Math.floor(Math.log(bytes) / Math.log(k));
+        
+        return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
     }
     
     function decode(s) {
@@ -165,7 +165,8 @@ function handleED2K(ed2kURL) {
     type: "ed2k",
     link: ed2kURL,
     name: decode(arrED[1]),
-    href: location.href
+    href: location.href,
+    fileSize: bytesToSize(arrED[2])
     };
     return result
 }
@@ -191,7 +192,7 @@ function handleMagnet(magnetURL) {
             result = {
             type: "magnet",
             link: magnetURL,
-            name: "torrent",
+            name: "种子文件.torrent",
             href: location.href
             }
         }
@@ -200,7 +201,7 @@ function handleMagnet(magnetURL) {
         result = {
         type: "magnet",
         link: magnetURL,
-        name: "torrent",
+        name: "种子文件.torrent",
         href: location.href
         }
     }

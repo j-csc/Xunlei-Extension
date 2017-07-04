@@ -8,18 +8,14 @@
 
 import SafariServices
 
-class SafariExtensionViewController: SFSafariExtensionViewController, NSTableViewDelegate, NSTableViewDataSource {
+class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var segmentControl: NSSegmentedControl!
     
     var tableContents: [[String: String]]? // keys: link, href, type, name
-    {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+   
     var lastLocation: String?
     var haveData: Bool?
 
@@ -36,6 +32,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         self.tableView.reloadData()
 
     }
+    
     @IBAction func segmentValChanged(_ sender: Any) {
         if segmentControl.selectedSegment == 0 {
             if (tableContents?.count)! > 1 {
@@ -49,15 +46,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
             }
         }
         
-    }
-    override func viewDidDisappear() {
-        super.viewDidDisappear()
-        // clear tableContents
+        tableView?.reloadData()
+        
     }
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
-    }
     
     override func viewDidAppear() {
         super.viewDidAppear()
@@ -73,48 +65,79 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     }
     
     
+
+}
+
+// MARK: -
+extension SafariExtensionViewController: NSTableViewDataSource, NSTableViewDelegate {
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return tableContents?.count ?? 0
     }
     
-    fileprivate enum CellIdentifiers {
-        static let NameCell = "NameCellID"
-        static let TypeCell = "TypeCellID"
-    }
-    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+        guard tableContents != nil, tableContents!.count > row else {
+            return nil
+        }
         
         let cellIdentifier: String = "cellIdentifier"
         
         // change back to row, if start at 0 just row, if 1, row-1
         
-        guard let item = tableContents?[0] else {
+        guard let item = tableContents?[row] else {
             return nil
         }
         
-        // 2
-        /*
-        if tableColumn == tableView.tableColumns[0] {
+        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: self) as? CustomTableViewCell {
             
-            text = item["name"] as! String
-            cellIdentifier = CellIdentifiers.NameCell
-        } else if tableColumn == tableView.tableColumns[1] {
-            text = item["type"] as! String
-            cellIdentifier = CellIdentifiers.TypeCell
-        }
-        */
-        // 3
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? CustomTableViewCell {
-            cell.name?.stringValue = item["name"]!
-            cell.fileName?.stringValue = item["link"]!
-            cell.websiteLink?.stringValue = item["href"]!
+            if let name = item["name"] {
+                cell.name?.stringValue = name
+                cell.image.image = (name.lowercased() as NSString).pathExtension.icon
+            }else {
+                cell.name?.stringValue = "文件名未知"
+                cell.image.image = nil
+            }
+            
+            cell.fileName?.stringValue = item["link"] ?? ""
+            
+            if let href = item["href"], let url = URL(string: href) {
+                cell.websiteLink?.stringValue = url.host ?? ""
+            }else {
+                cell.websiteLink?.stringValue = ""
+            }
+            cell.size.stringValue = item["fileSize"] ?? "未知大小"
+            
             return cell
         }
         
-        // 4
-          textField.integerValue = (tableContents?.count)!
+        textField.integerValue = (tableContents?.count)!
         return nil
     }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        
+        guard tableContents != nil, tableContents!.count > row, let item = tableContents?[row] else {
+            return false
+        }
+        
+        if let link = item["link"]  {
+            ThunderHelper.shared.download(url: link)
+        }
+        
+        return true
+    }
+}
+
+// MARK: -
+extension String {
+    
+    var  icon: NSImage? {
+        let img = Bundle.main.image(forResource: self)
+        return img
+    }
+
+    
 }
 
 
