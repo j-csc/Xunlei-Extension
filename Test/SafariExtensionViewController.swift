@@ -12,6 +12,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     @IBOutlet weak var tableView: NSTableView!
     
+    @IBOutlet weak var textField: NSTextField!
     var tableContents: [[String: Any]]? // keys: link, href, type, name
     {
         didSet {
@@ -39,6 +40,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     override func viewWillAppear() {
         super.viewWillAppear()
+        textField.integerValue = (tableContents?.count)!
     }
     
     override func viewDidAppear() {
@@ -52,7 +54,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
             tableContents = userInfo
             //update table view data
         }
-//        self.tableView.reloadData()
     }
     
     
@@ -91,6 +92,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
             cell.textField?.stringValue = text
             return cell
         }
+        
+        // 4
+          textField.integerValue = (tableContents?.count)!
         return nil
     }
 }
