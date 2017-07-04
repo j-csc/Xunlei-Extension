@@ -61,7 +61,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func popoverViewController() -> SFSafariExtensionViewController {
         NSLog("Popover will show")
         
-//        ThunderHelper.shared.download(url: "ftp://k:k@d3.dl1234.com:7322/终结者BD国英双语双字[电影天堂www.dy2018.com].mkv")
 //        ThunderHelper.shared.download(url: "magnet:?xt=urn:btih:DDAF5D35102781ADEE4A4F7AF027C7693C837217")
 
         
