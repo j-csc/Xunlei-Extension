@@ -12,7 +12,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var textField: NSTextField!
-    var tableContents: [[String: Any]]? // keys: link, href, type, name
+    @IBOutlet weak var segmentControl: NSSegmentedControl!
+    
+    var tableContents: [[String: String]]? // keys: link, href, type, name
     {
         didSet {
             tableView?.reloadData()
@@ -20,7 +22,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     }
     var lastLocation: String?
     var haveData: Bool?
-    
+
     static let shared = SafariExtensionViewController()
     // After receiving data, make sure there are no duplicates before passing onto table view
     
@@ -29,9 +31,24 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         //  make sure tableContents is unique for all items, and sorted for last date
         tableView.delegate = self
         tableView.dataSource = self
+
         self.tableView.sizeToFit()
         self.tableView.reloadData()
 
+    }
+    @IBAction func segmentValChanged(_ sender: Any) {
+        if segmentControl.selectedSegment == 0 {
+            if (tableContents?.count)! > 1 {
+                let sortedArray = tableContents?.sorted {$0["name"]! < $1["name"]!}
+                tableContents = sortedArray
+            }
+        }else if segmentControl.selectedSegment == 1 {
+            if (tableContents?.count)! > 1 {
+                let sortedArray = tableContents?.sorted {$0["name"]! > $1["name"]!}
+                tableContents = sortedArray
+            }
+        }
+        
     }
     override func viewDidDisappear() {
         super.viewDidDisappear()
@@ -40,7 +57,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        textField.integerValue = (tableContents?.count)!
     }
     
     override func viewDidAppear() {
@@ -50,7 +66,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     }
     
     func update(data: [String: Any]) {
-        if let userInfo = data["key"] as? [[String: Any]] {
+        if let userInfo = data["key"] as? [[String: String]] {
             tableContents = userInfo
             //update table view data
         }
@@ -89,9 +105,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         */
         // 3
         if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? CustomTableViewCell {
-            cell.name?.stringValue = item["name"] as! String
-            cell.fileName?.stringValue = item["link"] as! String
-            cell.websiteLink?.stringValue = item["href"] as! String
+            cell.name?.stringValue = item["name"]!
+            cell.fileName?.stringValue = item["link"]!
+            cell.websiteLink?.stringValue = item["href"]!
             return cell
         }
         

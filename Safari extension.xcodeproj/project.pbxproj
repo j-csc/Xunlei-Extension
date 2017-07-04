@@ -21,6 +21,7 @@
 		9690C6D11F00DC23006201F7 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 9690C6D01F00DC23006201F7 /* script.js */; };
 		9690C6D31F00DC23006201F7 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9690C6D21F00DC23006201F7 /* ToolbarItemIcon.pdf */; };
 		9690C6D61F00DC23006201F7 /* Test.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9690C6C11F00DC23006201F7 /* Test.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		96D1A1AC1F0BA10B00D5DCEC /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9690C6CA1F00DC23006201F7 /* SafariExtensionViewController.swift */; };
 		CE2117011F0B4B3100071F8B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2117001F0B4B3100071F8B /* CustomTableViewCell.swift */; };
 		CE2117061F0B507700071F8B /* vid-1_32.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2117051F0B507700071F8B /* vid-1_32.png */; };
 		CE21170B1F0B509300071F8B /* sniffer_download_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = CE2117071F0B509300071F8B /* sniffer_download_hover.png */; };
@@ -199,12 +200,12 @@
 				16A59C0A1F093F8F0044B4D3 /* ThunderHelper.swift */,
 				9690C6C81F00DC23006201F7 /* SafariExtensionHandler.swift */,
 				9690C6CA1F00DC23006201F7 /* SafariExtensionViewController.swift */,
+				CE2117001F0B4B3100071F8B /* CustomTableViewCell.swift */,
 				9690C6CC1F00DC23006201F7 /* SafariExtensionViewController.xib */,
 				9690C6CF1F00DC23006201F7 /* Info.plist */,
 				9690C6D01F00DC23006201F7 /* script.js */,
 				9690C6D21F00DC23006201F7 /* ToolbarItemIcon.pdf */,
 				9690C6C61F00DC23006201F7 /* Supporting Files */,
-				CE2117001F0B4B3100071F8B /* CustomTableViewCell.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -407,6 +408,7 @@
 			files = (
 				9690C6951F00DBE9006201F7 /* ViewController.swift in Sources */,
 				9690C6931F00DBE9006201F7 /* AppDelegate.swift in Sources */,
+				96D1A1AC1F0BA10B00D5DCEC /* SafariExtensionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

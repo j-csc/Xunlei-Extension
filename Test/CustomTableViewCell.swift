@@ -20,8 +20,11 @@ class CustomTableViewCell: NSTableCellView {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
         // Drawing code here.
+    }
+    override func awakeFromNib() {
+        self.image?.image = NSImage(named: "vid-1_32.png")!
+        self.downloadImage?.image = NSImage(named: "sniffer_download.png")!
     }
     
 }
