@@ -82,31 +82,36 @@ function secondarySort(arr) {
             array.push({
                        type: "video",
                        link: arr[i],
-                       name: processName(arr[i])
+                       name: processName(arr[i]),
+                       href: location.href
                        });
         } else if (musReg.test(arr[i])) {
             array.push({
                        type: "music",
                        link: arr[i],
-                       name: processName(arr[i])
+                       name: processName(arr[i]),
+                       href: location.href
                        });
         } else if (appReg.test(arr[i])) {
             array.push({
                        type: "app",
                        link: arr[i],
-                       name: processName(arr[i])
+                       name: processName(arr[i]),
+                       href: location.href
                        });
         } else if (fileReg.test(arr[i])) {
             array.push({
                        type: "file",
                        link: arr[i],
-                       name: processName(arr[i])
+                       name: processName(arr[i]),
+                       href: location.href
                        });
         } else if (otherReg.test(arr[i])) {
             array.push({
                        type: "other",
                        link: arr[i],
-                       name: processName(arr[i])
+                       name: processName(arr[i]),
+                       href: location.href
                        });
         } else if (thunderRegex.test(arr[i])) {
             array.push(handleThunder(arr[i]))
@@ -133,7 +138,8 @@ function handleThunder(thunderURL) {
     var result = {
     type: "thunder",
     link: thunderURL,
-    name: decode(newURI)
+    name: decode(newURI),
+    href: location.href
     };
     return result
 }
@@ -158,7 +164,8 @@ function handleED2K(ed2kURL) {
     var result = {
     type: "ed2k",
     link: ed2kURL,
-    name: decode(arrED[1])
+    name: decode(arrED[1]),
+    href: location.href
     };
     return result
 }
@@ -177,13 +184,15 @@ function handleMagnet(magnetURL) {
             result = {
             type: "magnet",
             link: magnetURL,
-            name: decode((str[1]).substr(3))
+            name: decode((str[1]).substr(3)),
+            href: location.href
             }
         } else {
             result = {
             type: "magnet",
             link: magnetURL,
-            name: "torrent"
+            name: "torrent",
+            href: location.href
             }
         }
     } else {
@@ -191,7 +200,8 @@ function handleMagnet(magnetURL) {
         result = {
         type: "magnet",
         link: magnetURL,
-        name: "torrent"
+        name: "torrent",
+        href: location.href
         }
     }
     

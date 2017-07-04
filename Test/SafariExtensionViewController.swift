@@ -68,8 +68,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
-        var text: String = ""
-        var cellIdentifier: String = ""
+        let cellIdentifier: String = "cellIdentifier"
         
         // change back to row, if start at 0 just row, if 1, row-1
         
@@ -78,6 +77,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         }
         
         // 2
+        /*
         if tableColumn == tableView.tableColumns[0] {
             
             text = item["name"] as! String
@@ -86,10 +86,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
             text = item["type"] as! String
             cellIdentifier = CellIdentifiers.TypeCell
         }
-        
+        */
         // 3
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
+        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? CustomTableViewCell {
+            cell.name?.stringValue = item["name"] as! String
+            cell.fileName?.stringValue = item["link"] as! String
+            cell.websiteLink?.stringValue = item["href"] as! String
             return cell
         }
         
