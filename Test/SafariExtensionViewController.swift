@@ -60,7 +60,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func update(data: [String: Any]) {
         if let userInfo = data["key"] as? [[String: String]] {
             tableContents = userInfo
-            //update table view data
         }
     }
     
@@ -107,7 +106,7 @@ extension SafariExtensionViewController: NSTableViewDataSource, NSTableViewDeleg
                 cell.websiteLink?.stringValue = ""
             }
             cell.size.stringValue = item["fileSize"] ?? "未知大小"
-            
+            textField.integerValue = (tableContents?.count)!
             return cell
         }
         

@@ -44,7 +44,7 @@
 			<key>Image</key>
 			<string>logo.png</string>
 			<key>Label</key>
-			<string>Links</string>
+			<string>Thunder</string>
 		</dict>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
@@ -59,6 +59,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2017 Jason Chen. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>This is a Safari Extension. You should tell us what your extension does here.</string>
+	<string>Our Safari Extension searches for all links downloadable by thunder online and sniffers them out.</string>
 </dict>
 </plist>
