@@ -11,7 +11,6 @@ import SafariServices
 class SafariExtensionViewController: SFSafariExtensionViewController, NSTableViewDelegate, NSTableViewDataSource {
     
     @IBOutlet weak var tableView: NSTableView!
-    
     @IBOutlet weak var textField: NSTextField!
     var tableContents: [[String: Any]]? // keys: link, href, type, name
     {
@@ -30,6 +29,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSTableVie
         //  make sure tableContents is unique for all items, and sorted for last date
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.sizeToFit()
         self.tableView.reloadData()
 
     }
