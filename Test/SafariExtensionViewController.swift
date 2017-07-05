@@ -34,18 +34,19 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     @IBAction func segmentValChanged(_ sender: Any) {
-        if segmentControl.selectedSegment == 0 {
-            if (tableContents?.count)! > 1 {
-                let sortedArray = tableContents?.sorted {$0["name"]! < $1["name"]!}
-                tableContents = sortedArray
-            }
-        }else if segmentControl.selectedSegment == 1 {
-            if (tableContents?.count)! > 1 {
-                let sortedArray = tableContents?.sorted {$0["name"]! > $1["name"]!}
-                tableContents = sortedArray
+        if let count = tableContents?.count {
+            if segmentControl.selectedSegment == 0 {
+                if (count)>1 {
+                    let sortedArray = tableContents?.sorted {$0["name"]! < $1["name"]!}
+                    tableContents = sortedArray
+                }
+            }else if segmentControl.selectedSegment == 1 {
+                if (count) > 1 {
+                    let sortedArray = tableContents?.sorted {$0["name"]! > $1["name"]!}
+                    tableContents = sortedArray
+                }
             }
         }
-        
         tableView?.reloadData()
         
     }

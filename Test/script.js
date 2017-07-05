@@ -13,16 +13,32 @@ var otherReg = /(\b(http[s]?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*\.(?:rar|z
 
 window.addEventListener("DOMContentLoaded", function (event) {
                         if (window === window.top) {
-                        console.log("Received message")
-                        var arr = sortURL(); // Fetches all links that have http/ https / ftp in it
-                        var passDict = secondarySort(arr);
-                        console.log(passDict);
-                        console.log("Passing to tableView");
-                        safari.extension.dispatchMessage("dataProcessed", {
-                                                         key: passDict,
-                                                         href: location.href
-                                                         });  }
+                            performSniffer();
+                        }
                         });
+
+safari.self.addEventListener("message", messageHandler);
+
+
+function messageHandler(event)
+{
+    if (event.name === "searchPage") {
+        performSniffer();
+        console.log("Sniffer on user's command.")
+    }
+}
+
+function performSniffer() {
+    console.log("Received message")
+    var arr = sortURL(); // Fetches all links that have http/ https / ftp in it
+    var passDict = secondarySort(arr);
+    console.log(passDict);
+    console.log("Passing to tableView");
+    safari.extension.dispatchMessage("dataProcessed", {
+                                     key: passDict,
+                                     href: location.href
+                                     });
+}
 
 
 function sortURL() {

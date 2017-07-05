@@ -29,7 +29,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         NSLog("The extension's toolbar item was clicked")
         window.getActiveTab { (activeTab) in
             activeTab?.getActivePage { (activePage) in
-                activePage?.dispatchMessageToScript(withName: "DoSomethingInteresting", userInfo: nil)
+                activePage?.dispatchMessageToScript(withName: "searchPage", userInfo: nil)
             }
         }
 
