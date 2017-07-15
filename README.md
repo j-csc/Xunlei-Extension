@@ -1,9 +1,13 @@
-## 插件的用途
-> 当Safari页面更新时，该插件会自动的为用户抓取当前页面中可以下载的资源，并将结果现在在工具栏的Popover视图中
-点击下载资源将拉起Mac迅雷创建下载任务。
 
-## 预览效果
+# Xunlei Safari App Extension
+This is a safari download extension that I created during my working days in XunLei Thunder Inc. 
 
-![](documents/images/preview.jpg)
+It sniffers out all the downloadable links inside a standard webpage (not including paid or custom video services: Youtube, Youku etc.)
+and creates a downloadable thunder:// link for it.
 
+Best used when paired with the Mac Thunder application.
+
+# Preview
+
+![preview](documents/images/preview.jpg)
 
