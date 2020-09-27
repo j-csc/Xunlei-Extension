@@ -1,4 +1,7 @@
 # Xunlei Safari App Extension
+
+> Now adopted as Chrome extension. Link: https://tinyurl.com/y6j8nwxg
+
 This is a safari download extension that I created during my working days in XunLei Thunder Inc. 
 
 It sniffers out all the downloadable links inside a standard webpage (not including paid or custom video services: Youtube, Youku etc.)
