@@ -7,9 +7,8 @@
 
 ## 设计效果
 
-![preview](images/preview.png)
+![preview](images/preview.jpg)
 
-PS: 搜索动画不需要做，顶部只需展示结果的数量。
 
 
 ## 文件名后缀分类

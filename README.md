@@ -1,3 +1,4 @@
+
 # Xunlei Safari App Extension
 
 > Now adopted as Chrome extension. Link: https://tinyurl.com/y6j8nwxg
@@ -11,3 +12,8 @@ and creates a downloadable thunder:// link for it.
 
 
 Best used when paired with the Mac Thunder application.
+
+# Preview
+
+![preview](documents/images/preview.jpg)
+
